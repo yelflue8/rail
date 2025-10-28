@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Available Tags</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .tag-card {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+    .tag-code {
+      font-family: monospace;
+      background: #e9ecef;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="p-3">
+  <h3>Available Tags</h3>
+  <p>Click on a tag to copy it to your clipboard.</p>
+
+  <div class="tag-card">
+    <h5><span class="tag-code" id="tag-email">#email#</span> <button class="btn btn-sm btn-outline-secondary" onclick="copyToClipboard('#tag-email')">Copy</button></h5>
+    <p>The recipient's email address.</p>
+  </div>
+  <div class="tag-card">
+    <h5><span class="tag-code" id="tag-fullname">#fullname#</span> <button class="btn btn-sm btn-outline-secondary" onclick="copyToClipboard('#tag-fullname')">Copy</button></h5>
+    <p>The recipient's full name (currently hardcoded to "John Doe").</p>
+  </div>
+  <div class="tag-card">
+    <h5><span class="tag-code" id="tag-num">#num#</span> <button class="btn btn-sm btn-outline-secondary" onclick="copyToClipboard('#tag-num')">Copy</button></h5>
+    <p>A random number (currently hardcoded to "12345678").</p>
+  </div>
+  <div class="tag-card">
+    <h5><span class="tag-code" id="tag-address">#address#</span> <button class="btn btn-sm btn-outline-secondary" onclick="copyToClipboard('#tag-address')">Copy</button></h5>
+    <p>The recipient's address (currently hardcoded to "123 Palm St, Miami, FL").</p>
+  </div>
+  <div class="tag-card">
+    <h5><span class="tag-code" id="tag-ranbody">#ranbody#</span> <button class="btn btn-sm btn-outline-secondary" onclick="copyToClipboard('#tag-ranbody')">Copy</button></h5>
+    <p>A random sentence for the email body (currently hardcoded).</p>
+  </div>
+  <div class="tag-card">
+    <h5><span class="tag-code" id="tag-date">#date#</span> <button class="btn btn-sm btn-outline-secondary" onclick="copyToClipboard('#tag-date')">Copy</button></h5>
+    <p>The current date in YYYY-MM-DD format.</p>
+  </div>
+  <div class="tag-card">
+    <h5><span class="tag-code" id="tag-time">#time#</span> <button class="btn btn-sm btn-outline-secondary" onclick="copyToClipboard('#tag-time')">Copy</button></h5>
+    <p>The current time in HH:MM:SS format.</p>
+  </div>
+
+  <a href="/">Back to Dashboard</a>
+
+  <script>
+    function copyToClipboard(elementId) {
+      var text = document.querySelector(elementId).innerText;
+      navigator.clipboard.writeText(text).then(function() {
+        alert('Tag copied to clipboard!');
+      }, function(err) {
+        alert('Failed to copy tag.');
+      });
+    }
+  </script>
+</body>
+</html>
